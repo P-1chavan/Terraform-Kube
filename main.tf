@@ -2,9 +2,10 @@ provider "aws1" {
   region = var.aws_region
 }
 
-resource "random_string" "suffix1" {
+resource "aws_instance" "web" {
   length  = 8
   special = false
+  instance_type = "t2.micro"
 }
 
 module "vpc1" {
