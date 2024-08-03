@@ -1,12 +1,3 @@
-terraform {
-  providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
-  }
-}
-
 provider "aws1" {
   region = var.aws_region
 }
