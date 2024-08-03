@@ -3,13 +3,13 @@ provider "aws" {
 }
 
 # Define the random string resource only once
-resource "random_string" "suffix" {
+resource "random_string" "suffix3" {
   length  = 8
   special = false
 }
 
 # Define the VPC module
-module "vpc" {
+module "vpc1" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.7.0"
 
@@ -39,7 +39,7 @@ module "vpc" {
 }
 
 # Define the EKS module
-module "eks" {
+module "eks2" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "20.8.4"
   cluster_name    = local.cluster_name
