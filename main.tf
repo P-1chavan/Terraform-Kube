@@ -1,4 +1,4 @@
-provider "aws" {
+provider "aws1" {
   region = var.aws_region
 }
 
@@ -7,7 +7,7 @@ resource "random_string" "suffix1" {
   special = false
 }
 
-module "vpc" {
+module "vpc1" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.7.0"
 
@@ -36,7 +36,7 @@ module "vpc" {
   }
 }
 
-module "eks" {
+module "eks1" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "20.8.4"
   cluster_name    = local.cluster_name
