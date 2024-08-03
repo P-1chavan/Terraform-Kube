@@ -2,6 +2,13 @@ provider "aws" {
   region = var.aws_region
 }
 
+# Define the random string resource only once
+resource "random_string" "suffix" {
+  length  = 8
+  special = false
+}
+
+# Define the VPC module
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.7.0"
@@ -31,6 +38,7 @@ module "vpc" {
   }
 }
 
+# Define the EKS module
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "20.8.4"
@@ -64,11 +72,7 @@ module "eks" {
   cluster_iam_role_arn = aws_iam_role.eks_cluster_role.arn
 }
 
-resource "random_string" "suffix" {
-  length  = 8
-  special = false
-}
-
+# Define the outputs
 output "cluster_id" {
   description = "EKS cluster ID."
   value       = module.eks.cluster_id
@@ -80,7 +84,7 @@ output "cluster_endpoint" {
 }
 
 output "cluster_security_group_id" {
-  description = "Security group ids attached to the cluster control plane."
+  description = "Security group IDs attached to the cluster control plane."
   value       = module.eks.cluster_security_group_id
 }
 
