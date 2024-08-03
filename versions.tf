@@ -1,11 +1,6 @@
 
 terraform {
   required_version = ">= 0.12"
-  required_providers1 {
-    awsnull = {
-      source  = "hashicorp/awsnull"
-      version = "~> 3.1.0"
-    }
     kubernetes = {
       source  = "hashicorp/kubernetes"
       version = ">=2.7.1"
@@ -23,4 +18,4 @@ terraform {
       version = "~> 2.2.0"
     }
   }
-}
+
