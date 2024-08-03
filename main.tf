@@ -1,4 +1,4 @@
-provider "aws" {
+provider "aws1" {
   region = var.aws_region
 }
 
@@ -9,7 +9,7 @@ resource "random_string" "suffix1" {
 
 module "vpc1" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "5.30.0"
+  version = "5.12.0"
 
   name                 = "Pawan-eks-vpc"
   cidr                 = var.vpc_cidr
