@@ -1,14 +1,21 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}
+
 provider "aws1" {
   region = var.aws_region
 }
 
-# Define the random string resource only once
-resource "random_string" "suffix3" {
+resource "random_string" "suffix1" {
   length  = 8
   special = false
 }
 
-# Define the VPC module
 module "vpc1" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.7.0"
@@ -38,8 +45,7 @@ module "vpc1" {
   }
 }
 
-# Define the EKS module
-module "eks2" {
+module "eks1" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "20.8.4"
   cluster_name    = local.cluster_name
