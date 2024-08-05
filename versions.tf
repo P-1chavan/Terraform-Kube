@@ -1,6 +1,4 @@
 terraform {
-  required_version = ">= 0.14"
-}
     random = {
       source  = "hashicorp/random"
       version = "3.1.0"
@@ -18,3 +16,4 @@ backend "remote" {
 			name = "AWSEKS"
 		}
 	}
+}
